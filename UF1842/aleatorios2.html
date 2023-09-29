@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 numeros aleatorios</title>
+</head>
+
+<body>
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+        let mi = prompt("Valor minimo");
+        let ma = prompt("Valor maximo");
+
+        tini = Date.now();
+        minimo = Number(mi);
+        maximo = Number(ma);
+
+        // para comprobar que el minimo es menor que el maximo
+        if (minimo > maximo) {
+            minimo += maximo;
+            maximo = minimo - maximo;
+            minimo -= maximo;
+        }
+
+        for (i = 0; i < 10; i++) {
+            n = aleatorio(minimo, maximo);
+            sal.innerHTML += n + " ";
+        }
+        sal.innerHTML += "<br>";
+        tfin = Date.now();
+        sal.innerHTML += "Tiempo transcurrido: " + (tfin - tini) + "<br>";
+
+        function aleatorio(a, b) {
+            return Math.floor(Math.random() * (b - a + 1)) + a;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <style>
+        #cuadro {
+            padding: 5rem;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body onload="estilo()">
+    <h1 onmouseenter="muevoraton()">Eventos</h1>
+    <div id="cuadro"></div>
+
+    <script>
+        // equivale a aplicar <h1 onmouseleave="restaurar()">
+        document.querySelector("h1").addEventListener("mouseleave", restaurar);
+
+        function estilo() {
+            document.bgColor = "blue";
+            document.fgColor = "white";
+        }
+
+        function muevoraton() {
+            document.getElementById("cuadro").style.backgroundColor = "orange";
+            document.querySelector("h1").style.fontFamily = "'Comic Sans', monospace";
+        }
+
+        function restaurar() {
+            document.getElementById("cuadro").style.backgroundColor = "yellow";
+            document.querySelector("h1").style.fontFamily = "'Times New Roman', serif";
+        }
+    </script>
+</body>
+</html>

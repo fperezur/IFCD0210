@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+
+<body>
+    <script>
+        num = prompt("Numero");
+        num = Number(num);
+        fac = factorial2(num);
+        alert("Factorial de " + num + " = " + fac);
+
+        /*
+        function factorial1(n) {
+            r = 1;
+            for (i = 1; i <= n; i++) {
+                r = i * r;
+            }
+            return r;
+        }
+        */
+
+        function factorial2(n) {
+            return r = (n == 0) ? 1 : n * factorial2(n - 1);
+        }
+    </script>
+</body>
+</html>

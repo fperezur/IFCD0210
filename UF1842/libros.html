@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+    <style>
+        #salida {
+            padding: 5px;
+            background-color: yellow;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="salida"></div>
+    <script>
+        const sal = document.getElementById("salida");
+
+        function Libros(t, a, n, p) {
+            this.titulo = t;
+            this.autor = a;
+            this.npag = n;
+            this.precio = p;
+        }
+
+        const libro1 = new Libros("Quijote", "Cervantes", 700, 15);
+        const libro2 = new Libros("La Celestina", "Fernando de Rojas", 300);
+        const libro3 = new Libros("Clasicos", "AAVV", libro1.npag+libro2.npag, 250);
+        sal.innerHTML = libro3.npag;   // muestra numero de paginas
+        sal.innerHTML += "<br>";
+        sal.innerHTML += libro2.precio;   // muestra precio no definido
+        const libro4 = new Libros("Lazarillo", 0, 200, 10);
+        sal.innerHTML += "<br>";
+        sal.innerHTML += libro4.autor;   // muestra 0 como autor
+    </script>
+</body>
+</html>

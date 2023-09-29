@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <style>
+        * {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Haz click en el número</h1>
+    <input type="button" id="boton" value="Poner a 0">
+    <span id="salida">Funcionando...</span>
+    <br>
+    <div id="crono" style="font-size: 20rem;">0</div>
+
+    <script>
+        const sal = document.querySelector("#salida");
+        const cro = document.querySelector("#crono");
+        const bot = document.querySelector("#boton");
+
+        cro.addEventListener("click", pulsa);   // onclick="pulsa()"
+        cro.addEventListener("dblclick", reinicia);   // ondblclick="reinicia()"
+        bot.addEventListener("click", reinicia);   // onclick="reinicia()"
+
+        let reloj = 0;
+        reloj = setInterval(contador, 1000);
+
+        //  contador en pantalla
+        function contador() {
+            let num = parseInt(cro.innerHTML);
+            cro.innerHTML = ++num;
+        }
+
+        // acciones cuando se pulsa sobre el contador
+        function pulsa() {
+            if (sal.innerHTML == "Funcionando...") {
+                parar();
+            } else {
+                funcionar();
+            }
+        }
+
+        // reinicia el contador
+        function reinicia() {
+            clearTimeout(reloj);
+            cro.innerHTML = 0;
+            funcionar();
+        }
+
+        // para el contador
+        function parar() {
+            clearInterval(reloj);
+            sal.innerHTML = "Parado";
+            cro.style.color = "red";
+        }
+
+        // hace que el contador funcione
+        function funcionar() {
+            reloj = setInterval(contador, 1000);
+            sal.innerHTML = "Funcionando...";
+            cro.style.color = "black";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco</title>
+</head>
+<body>
+    <script>
+        const cliente = {
+            nombre: "Marcos",
+            saldo: 500,
+            depositar: function(importe) {
+                return this.saldo += importe;
+            },
+            sacar: function(importe) {
+                return this.saldo -= importe;
+            }
+        }
+
+        document.write(cliente.saldo);
+        document.write("<br>");
+        nuevosaldo = cliente.depositar(150);
+        document.write(nuevosaldo);
+        document.write("<br>");
+        document.write(cliente.saldo);
+        document.write("<hr>");
+     
+        // constructor de usuario
+        function Usuario(nom, sal) {
+            this.nombre = nom;
+            this.saldo = sal;
+            // metodo depositar (devuelve el saldo actual)
+            this.depositar = function(importe) {
+                return this.saldo += importe;
+            };
+            // metodo sacar (no devuelve nada)
+            this.sacar = function(importe) {
+                this.saldo -= importe;
+            }
+        }
+
+        const otrocliente = new Usuario("Julio", 300);
+        document.write(otrocliente.nombre);
+        otrocliente.edad = 25;   // añadir una propiedad    
+        document.write("<br>");
+        document.write(otrocliente.edad);
+        otrocliente.sacar(175);
+        document.write("<br>");
+        document.write(otrocliente.saldo);
+    </script>
+</body>
+</html>

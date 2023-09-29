@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio</title>
+</head>
+<body>
+    <form action="">
+        <p>¿De qué ciudad eres?:</p>
+        <input type="radio" name="ciudad" id="malaga">
+        <label for="malaga">Málaga</label><br>
+        <input type="radio" name="ciudad" id="sevilla">
+        <label for="sevilla">Sevilla</label><br>
+        <input type="radio" name="ciudad" id="cordoba">
+        <label for="cordoba">Córdoba</label><br>
+        <input type="radio" name="ciudad" id="granada">
+        <label for="granada">Granada</label><br>
+        <input type="button" value="Ya" onclick="ciudades()">
+        <input type="button" value="Ya2" onclick="ciudades2()">
+    </form>
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+
+        function ciudades() {
+            let ciu = "";
+            if (document.getElementById("malaga").checked) ciu = "Málaga";
+            if (document.getElementById("sevilla").checked) ciu = "Sevilla";
+            if (document.getElementById("cordoba").checked) ciu = "Córdoba";
+            if (document.getElementById("granada").checked) ciu = "Granada";
+            sal.innerHTML = "Eres de " + ciu; 
+        }
+
+        function ciudades2() {
+            let ciu = "";
+            const inp = document.querySelectorAll("input");
+
+            for (i in inp) {
+                if (inp[i].type == "radio" && inp[i].checked) {
+                    ciu = inp[i].labels[0].innerHTML;
+                }
+            }
+            sal.innerHTML = "Eres de " + ciu;
+        }
+    </script>
+</body>
+</html>

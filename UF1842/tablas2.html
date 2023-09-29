@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla 2</title>
+    <style>
+        table, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        num = prompt("Numero");
+        const arr = new Array(num);
+        crear(num);
+        tabla(arr);
+
+        function crear(num) {
+            n = num;
+            for (i = 0; i<num; i++) {
+                arr[i] = n--;
+            }
+        }
+
+        function tabla(a) {
+            t = "<table><tr>";
+            for (n of a) {
+                t += "<td>" + n + "</td>";
+            }
+            t += "</tr></table>";
+            document.write(t);
+        }
+    </script>
+</body>
+</html>

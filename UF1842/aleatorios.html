@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 numeros aleatorios</title>
+</head>
+
+<body>
+    <p>Mostrar 10 números aleatorios entre:</p>
+    <label for="min">Min</label>
+    <input type="number" name="min" id="min">
+    <label for="max">Max</label>
+    <input type="number" name="max" id="max">
+    <input type="button" value="Generar" onclick="generar()">
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+        const mi = document.getElementById("min");
+        const ma = document.getElementById("max");
+
+        function generar() {
+            tini = Date.now();   // tini, tiempo inicial en milisegundos
+            const arr = new Array(10000);
+            minimo = Number(mi.value);
+            maximo = Number(ma.value);
+
+            for (i = 0; i < 10000; i++) {
+                arr[i] = aleatorio(minimo, maximo);
+                sal.innerHTML += arr[i] + " ";
+            }
+            sal.innerHTML += "<br>";
+            tfin = Date.now();   //tfin, tiempo final en milisegundos
+            sal.innerHTML += tfin - tini;
+            sal.innerHTML += "<br>";
+        }
+
+        function aleatorio(a, b) {
+            if (a > b) {
+                c = a;
+                a = b;
+                b = c;
+            }
+            alea = Math.floor(Math.random() * (b - a + 1)) + a;
+            return alea;
+        }
+    </script>
+</body>
+
+</html>

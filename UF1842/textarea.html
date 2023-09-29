@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+</head>
+<body>
+    <textarea name="mensaje" id="mensaje" cols="30" rows="10" maxlength="50"></textarea>
+    <div id="contador">0/50</div>
+    <script>
+        const men = document.getElementById("mensaje");
+        const con = document.getElementById("contador");
+
+        men.addEventListener("input", cuenta);
+
+        function cuenta() {
+            lonMax = men.getAttribute("maxlength");
+            lonAct = men.value.length;
+            con.innerHTML = lonAct + "/" + lonMax;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu con clases</title>
+    <style>
+        ul {
+            /* background-color: cyan; */
+            list-style-type: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="posicion"></div>
+    <script>
+        const pos = document.getElementById("posicion");
+        pos.innerHTML = "";
+
+        class Menu {
+            constructor() {
+                this.url = [];
+                this.descripcion = [];
+            }
+            insertar(u, d) {
+                this.url.push(u);
+                this.descripcion.push(d);
+            }
+            mostrar() {
+                let i, enl;
+                enl = "<ul>";
+                for (i = 0; i<this.url.length; i++) {
+                    enl += "<li><a href='";
+                    enl += this.url[i] + "'>";
+                    enl += this.descripcion[i];
+                    enl += "</a></li>";
+                }    
+                enl += "</ul>";
+                pos.innerHTML = enl;
+            }
+        }
+
+        const menu1 = new Menu();
+
+        menu1.insertar("https://www.ford.com", "Ford");
+        menu1.insertar("https://www.seat.com", "Seat");
+        menu1.insertar("https://www.bmw.com", "BMW");
+
+        menu1.mostrar();
+
+        document.write(`${menu1.url[0]}`);
+
+        menu1.insertar("https://www.fiat.com", "Fiat");
+        menu1.mostrar();
+        
+        class MenuEspecial extends Menu {
+            constructor() {
+                super();
+            }
+            horizontal() {
+                let i, enl = "";
+                for (i in this.url) {
+                    enl += "<a href='" + this.url[i] + "'>";
+                    enl += this.descripcion[i] + "</a>";
+                    enl += " ";
+                }
+                pos.innerHTML = enl;
+            }
+            vertical() {
+                let i, enl = "";
+                for (i in this.url) {
+                    enl += "<a href='" + this.url[i] + "'>";
+                    enl += this.descripcion[i] + "</a>";
+                    enl += "<br>";
+                }
+                pos.innerHTML = enl;
+            }
+            vermenu(m) {
+                (m == "h") ? this.horizontal() : this.vertical();
+            }
+        } 
+
+        const menu2 = new MenuEspecial();
+        menu2.insertar("https://www.ford.com", "Ford");
+        menu2.insertar("https://www.fiat.com", "Fiat");
+
+        menu2.vermenu("v");
+
+    </script>
+</body>
+</html>

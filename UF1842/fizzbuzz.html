@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz Buzz</title>
+</head>
+<body>
+    <script>
+        for (n = 1; n <= 20; n++) {
+            if (n%3 == 0 && n%5 == 0) {
+                t = "fizzbuzz";
+            } else if (n%3 == 0) {
+                t = "fizz";
+            } else if (n%5 == 0) {
+                t = "buzz";
+            } else { t = n; }
+            document.write(t+"<br>");
+        }
+    </script>
+</body>
+</html>

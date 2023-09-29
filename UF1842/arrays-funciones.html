@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays - Metodos</title>
+</head>
+<body>
+    <script>
+        const array = ["Málaga", "Sevilla", "Córdoba", "Granada", "Cádiz"];
+
+        document.write("Array: " + array + "<br><br>");
+        document.write("pop(): borra el último elemento y devuelve el elemento<br>");
+        document.write(array.pop());
+        document.write("<br>");
+        
+        document.write("Array queda: " + array + "<br><br>");
+        document.write("push(elemento): añade un elemento al final y devuelve la longitud del array<br>");
+        document.write(array.push("Huelva"));
+        document.write("<br>");
+
+        document.write("Array queda: " + array + "<br><br>");
+        document.write("shift(): borra el primer elemento y devuelve el elemento<br>");
+        document.write(array.shift());
+        document.write("<br>");
+
+        document.write("Array queda: " + array + "<br><br>");
+        // quita el primer elemento y lo pone al final
+        document.write(array.push(array.shift()));
+        document.write("<br>");
+        document.write("Array queda: " + array + "<br><br>");
+        document.write("unshift(elemento): añade un elemento al inicio y devueleve la longitud del array<br>");
+        document.write(array.unshift("Almería"));
+        document.write("<br>");
+
+        document.write("Array queda: " + array + "<br><br>");
+
+    </script>
+</body>
+</html>

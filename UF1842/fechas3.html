@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas 3</title>
+</head>
+<body>
+    <script>
+        const aaaa = 365.25 * 24 * 60 * 60 * 1000;   // milisegundos en 1 año
+
+        fecha = "1967-02-27";  // cadena en formato AAAA-MM-DD
+        ph = "1941-12-02";   // ataque a Pearl Harbour
+
+        fec = Date.parse(fecha);
+        document.write(fec);
+        document.write("<br>");
+
+        // años hasta 1970
+        years = Math.round(fec / aaaa);
+        document.write(years);
+        document.write("<br>");
+
+        // años hasta 1970 desde Pearl Harbour
+        p = Date.parse(ph);
+        yy = Math.round(p / aaaa);
+        document.write(yy);
+
+    </script>
+</body>
+</html>

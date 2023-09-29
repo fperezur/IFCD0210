@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+</head>
+
+<body>
+    <form action="">
+        <p>Marca las ciudades que has visitado:</p>
+        <input type="checkbox" name="malaga" id="malaga">
+        <label for="malaga">Málaga</label><br>
+        <input type="checkbox" name="sevilla" id="sevilla">
+        <label for="sevilla">Sevilla</label><br>
+        <input type="checkbox" name="cordoba" id="cordoba">
+        <label for="cordoba">Córdoba</label><br>
+        <input type="checkbox" name="granada" id="granada">
+        <label for="granada">Granada</label><br>
+        <input type="button" value="Ya" onclick="ciudades()">
+        <input type="button" value="Ya2" onclick="ciudades2()">
+    </form>
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+
+        function ciudades() {
+            let numciudades = 0;
+            if (document.getElementById("malaga").checked) numciudades++;
+            if (document.getElementById("sevilla").checked) numciudades++;
+            if (document.getElementById("cordoba").checked) numciudades++;
+            if (document.getElementById("granada").checked) numciudades++;
+            sal.innerHTML = "Has visitado " + numciudades + " ciudades";
+        }
+
+        function ciudades2() {
+            let numciudades = 0;
+            const inp = document.getElementsByTagName("input");
+
+            for (i in inp) {
+                if (inp[i].type == "checkbox" && inp[i].checked) {
+                    numciudades++;
+                }
+            }
+            sal.innerHTML = "Has visitado " + numciudades + " ciudades";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+# IFCD0210: Desarrollo de aplicaciones con tecnologías web
+
+## UF1842: Desarrollo y reutilización de componentes software y multimedia mediante lenguajes de guión
+
+### JavaScript
+- `programa.html` (incluye: `programa.js`)
+- `prueba.html`
+- `arrays.html`
+- `if-else.html`
+- `switch.html` (incluye: `switch.js`)
+- `prompt.html`
+- `adivina1.html`
+- `adivina2.html`(incluye: `adivina2.js`)
+- `bucle.html`
+- `adivina-el-numero.html` (incluye: `adivina-el-numero.js`)
+- `ejercicio1.html`
+- `ejercicio2.html`
+- `ejercicio3.html`
+- `cadenas.html`
+- `vocales-consonantes.html` (incluye: `vocales-consonantes.js`)
+- `eventos.html`
+- `tablas.html`
+- `tablas2.html`
+- `matriz.html`
+- `matriz2.html`
+- `fechas.html`
+- `fechas2.html`
+- `calendario.html` (incluye: `calendario.js`)
+- `fechas3.html`
+- `aleatorios.html`
+- `aleatorios2.html`
+- `fizzbuzz.html`
+- `factorial.html`
+- `objetos.html`
+- `banco.html`
+- `libros.html`
+- `biblioteca.html`
+- `checkbox.html`
+- `radio.html`
+- `select.html`
+- `pizza.html`
+- `arrays-funciones.html`
+- `cookie.html`
+- `sesion.html`
+- `presupuesto.html`
+- `cronometro.html`
+- `cronometro2.html`
+- `textarea.html`
+- `errores.html`
+- `validaciones.html`
+- `banco-clases.html`
+- `menu-clases.html`
+- `fechas4.html` (incluye: `fechas.js` y `salida.js`)

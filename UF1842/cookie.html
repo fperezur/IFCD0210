@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+</head>
+
+<body>
+    <input type="button" value="Escribir Cookie" onclick="escribirCookie()">
+    <input type="button" value="Mostrar Cookies (Todas)" onclick="mostrarTodasCookies()">
+    <input type="button" value="Mostrar Cookie" onclick="mostrarCookie()">
+    <input type="button" value="Comprobar Cookie" onclick="comprobarCookie()">
+    <input type="button" value="Borrar Cookie" onclick="borrarCookie()">
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+
+        if (navigator.userAgent.indexOf("Firefox") < 0) {
+            alert("Solo funciona en Mozilla Firefox");
+            document.body.innerHTML = "";
+        }
+
+        function escribirCookie() {
+            nomCoo = prompt("Nombre de la cookie");
+            if (nomCoo == "") {
+                sal.innerHTML = "Cookie NO creada";
+            } else {
+                valCoo = prompt("Valor de la cookie");
+                if (valCoo == "") {
+                    sal.innerHTML = "Cookie NO creada";
+                } else {
+                    Coo = nomCoo + "=" + valCoo;
+                    document.cookie = Coo + "; " + expira() + "SameSite=None; Secure";
+                    sal.innerHTML = "Cookie " + Coo + " creada";
+                }
+            }
+        }
+
+        function expira() {
+            const fec = new Date();
+            actual = fec.getTime();   // actual, tiempo actual
+            tiempo = 30 * 24 * 60 * 60 * 1000;   // tiempo, milisegundos en 1 mes
+            fec.setTime(actual + tiempo);
+            let expira = "expires=" + fec.toUTCString();
+            return expira;
+        }
+
+        function mostrarTodasCookies() {
+            sal.innerHTML = document.cookie;
+        }
+
+        function mostrarCookie() {
+            nomCoo = prompt("Nombre de la cookie");
+            const arrCookie = document.cookie.split("; ");
+            const elem = [], nomCookie = [];
+
+            for (i in arrCookie) {
+                elem[i] = arrCookie[i].indexOf("=");
+                nomCookie[i] = arrCookie[i].substring(0, elem[i]);
+                if (nomCookie[i] == nomCoo) {
+                    sal.innerHTML = "Cookie " + nomCoo + " = ";
+                    sal.innerHTML += arrCookie[i].substring(elem[i] + 1, arrCookie[i].length);
+                    break;
+                }
+                sal.innerHTML = "Cookie " + nomCoo + " NO existe";
+            }
+        }
+
+        function comprobarCookie() {
+            nomCoo = prompt("Nombre de la cookie");
+            const arrCookie = document.cookie.split("; ");
+            const elem = [], nomCookie = [];
+
+            for (i in arrCookie) {
+                elem[i] = arrCookie[i].indexOf("=");
+                nomCookie[i] = arrCookie[i].substring(0, elem[i]);
+                if (nomCookie[i] == nomCoo) {
+                    sal.innerHTML = "Cookie " + nomCoo + " existe";
+                    break;
+                }
+                sal.innerHTML = "Cookie " + nomCoo + " NO existe";
+            }
+        }
+
+        function borrarCookie() {
+            nomCoo = prompt("Nombre de la cookie");
+            document.cookie = nomCoo + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";;
+            sal.innerHTML = "Cookie " + nomCoo + " borrada";
+        }
+    </script>
+</body>
+
+</html>

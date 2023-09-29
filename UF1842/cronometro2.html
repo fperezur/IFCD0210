@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro 2</title>
+    <style>
+        * {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hora actual</h1>
+    <div id="crono" style="font-size: 20rem; font-family: monospace"></div>
+
+    <script>
+        const cro = document.querySelector("#crono");
+
+        setInterval(contador, 1000);
+
+        //  contador en pantalla
+        function contador() {
+            const tiempo = new Date();
+            hora = tiempo.toLocaleTimeString();
+            cro.innerHTML = hora;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+</head>
+<body>
+    <form action="">
+        <p>¿De qué ciudad eres?:</p>
+        <select name="ciudad" id="ciudad">
+            <option value="malaga">Málaga</option>
+            <option value="sevilla">Sevilla</option>
+            <option value="cordoba">Córdoba</option>
+            <option value="granada">Granada</option>
+        </select>
+        <input type="button" value="Ya" onclick="ciudades()">
+    </form>
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+
+        function ciudades() {
+            let ciu = "";
+
+            const ciudad = document.getElementById("ciudad");
+            let ciusel = ciudad.selectedIndex;
+            let opcion = ciudad.options[ciusel];
+            ciu = opcion.innerHTML;
+            // ciu = ciudad[ciusel].text;
+
+            sal.innerHTML = "Eres de " + ciu; 
+        }
+    </script>
+</body>
+</html>

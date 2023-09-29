@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+    <style>
+        table, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6];
+        tabla(arr);
+
+        function tabla(a) {
+            t = "<table><tr>";
+            for (n of a) {
+                t += "<td>" + n + "</td>";
+            }
+            t += "</tr></table>";
+            document.write(t);
+        }
+    </script>
+</body>
+</html>

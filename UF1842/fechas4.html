@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+    <script src="salida.js"></script>
+    <script src="fechas.js"></script>
+    <script>
+        function hr() {
+            document.write("<hr>");
+        }
+    </script>
+</head>
+<body>
+    <script>
+        const hoy = new Fecha();
+
+        dia = hoy.getDia();
+        dd = hoy.getDate();
+        mes = hoy.getMes();
+        aaaa = hoy.getFullYear();
+
+        texto = "Hoy es "+dia+", "+dd+" de "+mes+" de "+aaaa;
+
+        escribir("a", texto);
+        escribir("l", texto);
+        escribir("-");
+        escribir("w", texto);
+        escribir("c", texto);
+        escribir("c", hoy.getHoy());
+        hr();
+
+        const mañana = new Fecha();
+        mañana.setDate(mañana.getDate()+1);   // establecer la fecha de mañana
+        dia = mañana.getDia();
+        dd = mañana.getDate();
+        mes = mañana.getMes();
+        aaaa = mañana.getFullYear();
+
+        texto2 = `Mañana es ${dia}, ${dd} de ${mes} de ${aaaa}`;
+        escribir("d", texto2);
+    </script>
+</body>
+</html>

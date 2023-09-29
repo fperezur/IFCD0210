@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas 2</title>
+</head>
+<body>
+    <label for="fecha">Elige una fecha:</label>
+    <input type="date" name="fecha" id="fecha">
+    <input type="button" value="OK" onclick="escribirfecha()">
+    <script>
+        
+        function escribirfecha() {
+            let fec = document.getElementById("fecha").value;
+
+            document.write(fec);
+            document.write("<br>");
+            
+            // compruebo el tipo de entrada que recupero en el formulario
+            tipo = typeof fec;
+            document.write(tipo);
+            document.write("<br>");
+
+            // convertir cadena de formulario en fecha
+            const mifecha = new Date(fec);
+            
+            dd = mifecha.getDate();   // obtengo el dia en formato DD
+            d = mifecha.getDay();   // obtengo el dia de la semana
+            ds = diasem(d);   // obtengo el dia de la semana
+            
+            mm = mifecha.getMonth()+1;   // obtengo el mes en formato MM
+            ml = meslet(mm-1);   // obtengo el mes como texto
+            
+            aaaa = mifecha.getFullYear();   // obtengo el año en formato AAAA
+            
+            document.write(dd + "/" + mm + "/" + aaaa);
+            document.write("<br>");
+            
+            document.write(ds + ", " + dd + " de " + ml + " de " + aaaa);
+
+            // Funciones
+            // diasem() devuelve el dia de la semana como texto
+            function diasem(dd) {
+                const s = ["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+                return s[dd];
+            }
+
+            // meslet() devuelve el mes como texto
+            function meslet(mm) {
+                const m = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+                return m[mm];
+            }
+        }
+    </script>
+</body>
+</html>

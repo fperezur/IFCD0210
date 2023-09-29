@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+    <form action="">
+        <label for="pizza">Elige tu pizza</label><br>
+        <select name="pizza" id="pizza">
+            <option value="4 €">Jamón y queso</option>
+            <option value="6 €">Queso</option>
+            <option value="8 €">Mozzarella</option>
+            <option value="10 €">Morrones</option>
+        </select>
+        <input type="button" value="Tu pizza" onclick="tupizza()">
+    </form>
+    <hr>
+    <div id="salida"></div>
+    <script>
+        const sal = document.getElementById("salida");
+
+        function tupizza() {
+            const pizza = document.getElementById("pizza");
+            let pizsel = pizza.selectedIndex;
+
+            sal.innerHTML = "Tu pizza es " + pizza[pizsel].text + " y vale " + pizza[pizsel].value;
+        }
+    </script>
+</body>
+</html>

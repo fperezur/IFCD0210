@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errores</title>
+</head>
+<body>
+    <div id="salida"></div>
+    <script>
+        const sal = document.getElementById("salida");
+
+        // pruebo si las instrucciones del bloque try son correctas
+        try {
+            allert("Hola mundo");
+        }
+        // atrapo el error err que se produzca en el bloque try
+        catch(err) {
+            console.error(err.message);   // mostrar en consola mensaje de error
+        }
+
+        sal.innerHTML = "Hola mundo"; 
+    </script>
+</body>
+</html>

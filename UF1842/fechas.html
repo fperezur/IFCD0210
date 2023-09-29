@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+</head>
+<body>
+    <script>
+        const ahora = new Date();
+        document.write(ahora);
+        document.write("<br>");
+
+        const fecha = new Date(2022, 1, 10, 12, 45);
+        document.write(fecha);
+        document.write("<br>");
+
+        // 2 parametros: año y mes -> devuelve el primer dia del mes y año
+        const fecha2 = new Date(2022, 1);
+        document.write(fecha2);
+        document.write("<br>");
+
+        const fechaerr = new Date(2022, 14, 36, 12, 45);
+        document.write(fechaerr);
+        document.write("<br>");
+
+        const viesan = new Date(2022, 3, 15);
+        dia = viesan.getDate();
+        document.write(dia);
+        document.write("<br>");
+        lunespascua = dia+3;
+        document.write(lunespascua);
+        document.write("<br>");
+
+        mes = viesan.getMonth()+1;   // getMonth() devuelve el mes (0-11)
+        anno = viesan.getFullYear();
+
+        document.write(dia + "/" + mes + "/" + anno);
+        document.write("<br>");
+
+        ml = mesletras(viesan.getMonth());
+        document.write(dia + " de " + ml + " de " + anno);
+        document.write("<br>");
+
+        // ds = viesan.getDay();
+        diasemana = dialetras(viesan.getDay());
+        document.write(diasemana);
+        document.write("<br>");
+
+        document.write(fecha2);
+        document.write("<br>");
+        fecha2.setFullYear(2023);   // cambio el año a 2023
+        document.write(fecha2);
+        document.write("<br>");
+
+        if (fecha > fecha2) {
+            document.write("fecha es mayor que fecha2");
+        } else {
+            document.write("fecha no es mayor que fecha2");
+        }
+
+        // Funciones
+        // mesletras devuelve el mes m como texto 0 = enero, ...
+        function mesletras(m) {
+            switch (m) {
+                case 0: res = "enero"; break;
+                case 1: res = "febrero"; break;
+                case 2: res = "marzo"; break;
+                case 3: res = "abril"; break;
+                case 4: res = "mayo"; break;
+                case 5: res = "junio"; break;
+                case 6: res = "julio"; break;
+                case 7: res = "agosto"; break;
+                case 8: res = "septiembre"; break;
+                case 9: res = "octubre"; break;
+                case 10: res = "noviembre"; break;
+                case 11: res = "diciembre";
+            }
+            return res;
+        }
+    
+        // dialetras devuelve el dia de la semana como texto
+        function dialetras(d) {
+            const s = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+            return s[d];
+        }
+    </script>
+</body>
+</html>

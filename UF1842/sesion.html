@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Escribir Sesion" onclick="escribirSesion()">
+        <input type="button" value="Mostrar Sesiones (Todas)" onclick="mostrarTodasSesiones()">
+        <input type="button" value="Mostrar Sesion" onclick="mostrarSesion()">
+        <input type="button" value="Borrar Sesion" onclick="borrarSesion()">
+        <input type="button" value="Limpiar Sesion" onclick="limpiarSesion()">
+    </form>
+    <hr>
+    <div id="salida"></div>
+
+    <script>
+        const sal = document.getElementById("salida");
+
+        function escribirSesion() {
+            nomSes = prompt("Nombre de la sesión");
+            if (nomSes == "") {
+                sal.innerHTML = "Sesión NO creada";
+            } else {
+                valSes = prompt("Valor de la sesión");
+                if (valSes == "") {
+                    sal.innerHTML = "Sesión NO creada";
+                } else {
+                    sessionStorage.setItem(nomSes, valSes);
+                    sal.innerHTML = "Sesión " + nomSes + ": " + valSes + " creada";
+                }
+            }
+        }
+
+        function mostrarTodasSesiones() {
+            sal.innerHTML = "";
+            Ses = Object.keys(sessionStorage);
+            for (i in Ses) {
+                nomSes = Ses[i];
+                valSes = Object.values(sessionStorage)[i];
+                sal.innerHTML += nomSes + ": " + valSes + "<br>";
+            }
+        }
+
+        function mostrarSesion() {
+            nomSes = prompt("Nombre de la sesión");
+            if (sessionStorage.getItem(nomSes) != null) {
+                valSes = sessionStorage.getItem(nomSes);
+                sal.innerHTML = "Sesión " + nomSes + ": " + valSes;
+            } else {
+                sal.innerHTML = "Sesión " + nomSes + " NO existe";
+            }
+        }
+
+        function borrarSesion() {
+            nomSes = prompt("Nombre de la sesión");
+            sessionStorage.removeItem(nomSes);
+            sal.innerHTML = "Sesión " + nomSes + " borrada";
+        }
+
+        function limpiarSesion() {
+            sessionStorage.clear();
+            sal.innerHTML = "Almacenamiento de sesión limpio";
+        }
+    </script>
+</body>
+
+</html>

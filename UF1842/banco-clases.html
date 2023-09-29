@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco con Clases</title>
+    <!-- https://tutorialesprogramacionya.com/javascriptya/temarios/descripcion.php?inicio=90&cod=97 -->
+</head>
+<body>
+    <div id="mensaje"></div>
+    <script>
+        const men = document.getElementById("mensaje");
+        men.innerHTML = "";
+
+        // definicion de la clase Cliente
+        class Cliente {
+            constructor(nom, sal) {
+                this.nombre = nom;
+                this.saldo = sal;
+            }
+            depositar(imp) {
+                this.saldo += imp;
+            }
+            sacar(imp) {
+                this.saldo -= imp;
+            }
+        }
+
+        const persona1 = new Cliente("Lola", 1000);
+        const persona2 = new Cliente("Pedro", 500);
+
+        men.innerHTML += persona1.nombre;   // nombre de persona1
+        men.innerHTML += "<br>";
+        men.innerHTML += persona2.saldo;   // saldo de persona2
+        men.innerHTML += "<hr>";
+
+        persona1.sacar(300);
+        men.innerHTML += "Saldo de " + persona1.nombre + " es " + persona1.saldo;
+        men.innerHTML += "<br>";
+
+        persona2.depositar(300);
+        men.innerHTML += "Saldo de " + persona2.nombre + " es " + persona2.saldo;
+        men.innerHTML += "<br>";
+
+    </script>
+</body>
+</html>

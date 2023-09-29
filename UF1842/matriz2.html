@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz2</title>
+    <style>
+        table,
+        td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        .diagonal {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="salida"></div>
+    <script>
+        const sal = document.getElementById("salida");
+        const a = [[1, 2], [3, 4, 9], [5, 6], [7, 8, 0]];
+
+        tabla(a);   // pinta la tabla
+        tabladiagonal(a);   // colorea la diagonal i == j
+
+        function tabla(a) {
+            // numfilas = a.length;
+            // numcols = a[0].length;
+
+            t = "<table>";
+
+            for (i in a) {   // recorre las i filas
+                t += "<tr>";
+                for (j in a[i]) {   // recorre las j columnas
+                    t += "<td>" + a[i][j] + "</td>";
+                }
+                t += "</tr>";
+            }
+
+            t += "</table>";
+
+            sal.innerHTML = t;
+        }
+
+        function tabladiagonal(a) {
+            t = "<table>";
+            for (i in a) {   // recorre las i filas
+                t += "<tr>";
+                for (j in a[i]) {   // recorre las j columnas
+                    if (i == j) {
+                        t += "<td class='diagonal'>" + a[i][j] + "</td>";    
+                    } else {
+                        t += "<td>" + a[i][j] + "</td>";
+                    }
+                }
+                t += "</tr>";
+            }
+            t += "</table>";
+            sal.innerHTML = t;
+        }
+    </script>
+</body>
+
+</html>

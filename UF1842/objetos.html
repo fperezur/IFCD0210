@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+
+<body>
+    <script>
+        // declaracion del objeto
+        const persona = {
+            nombre: "Juan",
+            apellido: "Lopez",
+            edad: 35,
+            dni: "12345678Z",
+            nombrecompleto: function() {   // metodo nombrecompleto
+                return this.nombre+" "+this.apellido;
+            }
+        }
+
+        // accedo al objeto con nombreobjeto.propiedad
+        document.write(persona.nombre);
+        document.write("<br>");
+        // accedo al objeto con nombreobjeto["propiedad"]
+        document.write(persona["apellido"]);
+        document.write("<br>");
+        // accedo al metodo con nombreobjeto.metodo()
+        document.write(persona.nombrecompleto());
+        document.write("<br>");
+
+        // otra declaracion de objeto
+        const coche = {};
+        coche.marca = "Ford";
+        coche.modelo = "Mustang";
+        coche.color = "rojo";
+
+        const alumno = persona;
+        document.write(alumno.nombre);   // muestra "Juan"
+        alumno.apellido = "Perez";
+        document.write("<br>");
+        document.write(alumno.apellido);   // muestra "Perez"
+        document.write("<br>");
+        document.write(persona.apellido);   // muestra "Perez"
+        document.write("<br>");
+
+        // recorrer i propiedades de un objeto
+        for (i in coche) {
+            if (coche[i] == "rojo") { coche[i] = "azul" }
+            document.write(coche[i]);
+            document.write("<br>");
+        }
+
+        for (i in alumno) {
+            // if (alumno["edad"] > 18)
+            if (i == "edad" && alumno[i] > 18) {
+                document.write("Es mayor de edad");
+            }
+        }
+        document.write("<br>");
+
+        // objeto compuesto de objetos
+        const conductor = {
+            persona: {
+                nombre: "Luis",
+                apellido: "Gomez"
+            },
+            coche: {
+                marca: "Mercedes",
+                modelo: "A500",
+                color: "negro"
+            }
+        }
+
+        document.write(conductor.coche.modelo);
+        document.write("<br>");
+        document.write(conductor["persona"]["apellido"]);
+        document.write("<hr>");
+
+        document.write(coche.marca);
+        coche.grande = function() {   // escribe la marca en mayusculas
+            return this.marca.toUpperCase();
+        }
+        document.write("<br>");
+        document.write(coche.grande());
+
+    </script>
+</body>
+
+</html>
